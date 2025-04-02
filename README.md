@@ -69,3 +69,52 @@ K) A saída exata é: Tico Macaco 4 Nala Leoa 5 Savana Africana
 L) O código não rodaria, pois uma extension sem o super da class Animal não funciona.
 
 7. 
+
+Respostas M e N:  // Classe base 
+class Animal { 
+  constructor(nome, especie, idade) { 
+    this.nome = nome; 
+    this.especie = especie; 
+    this.idade = idade; 
+  } 
+
+  exibirInformacoes() { 
+    return `Nome: ${this.nome}, Espécie: ${this.especie}, Idade: ${this.idade}`;  
+  } 
+} 
+
+// Classe derivada - Animal Selvagem
+class AnimalSelvagem extends Animal { 
+  constructor(nome, especie, idade, habitat) { 
+    super(nome, especie, idade); 
+    this.habitat = habitat; 
+  } 
+
+  exibirHabitat() { 
+    return `Habitat natural: ${this.habitat}`; 
+  } 
+} 
+
+// Nova classe derivada - Animal Doméstico
+class AnimalDomestico extends Animal {
+  constructor(nome, especie, idade, nomeDono) {
+    super(nome, especie, idade);
+    this.nomeDono = nomeDono;
+  }
+
+  exibirDono() {
+    return `Dono de ${this.nome}: ${this.nomeDono}`;
+  }
+}
+
+// Instâncias e retornos
+const animal1 = new Animal("Tico", "Macaco", 4); 
+const animal2 = new AnimalSelvagem("Nala", "Leoa", 5, "Savana Africana"); 
+const animal3 = new AnimalDomestico("Rex", "Cachorro", 3, "João");
+
+console.log(animal1.exibirInformacoes()); 
+console.log(animal2.exibirInformacoes()); 
+console.log(animal2.exibirHabitat()); 
+console.log(animal3.exibirInformacoes()); 
+console.log(animal3.exibirDono());
+
